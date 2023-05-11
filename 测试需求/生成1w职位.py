@@ -9,17 +9,17 @@ import threading
 #使用参考 https://blog.csdn.net/yao2003365/article/details/126248425
 fake=Faker("zh_CN")
 
-#获取token
-#online的自建应用
+# 获取token
+# online的自建应用
 # appid="cli_a3ee06d2463cd00d"
 # appsecret="o9HuYTAAT8ugwYLBUZ33cceqWZpfCRHJ"
-#boe公用的自建应用
+# boe公用的自建应用
 # appid="cli_a3d5d192aff8d01b"
 # appsecret="LexA85Jf2CypkhKWzBEqCcnbGfobjdSk"
-#staging的自建应用
+# staging的自建应用
 # appid="cli_a09151f62138900e"
 # appsecret="yWU1huBPNi1cIoxuwIwdch1XBTkCrWjo"
-#boe的自建租户的应用
+# boe的自建租户的应用
 appid="cli_a3f6156913f8901b"
 appsecret="62ZkhYTnYNdNDrVF8hCXwgT5MC8t7nI6"
 
