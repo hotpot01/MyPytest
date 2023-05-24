@@ -1,0 +1,17 @@
+{
+    "short_code": "100611",
+    "name": "test",
+    "display_progress": 1,
+    "head_count": 11,
+    "recruitment_type_id": "101",
+    "recruiter_id_list": [
+        "g4272279"
+    ],
+    "customized_data_list": [
+        {
+            "object_id": "6965375909734172942",
+            "value": "测试富文本"
+        }
+    ]
+
+}

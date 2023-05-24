@@ -1,1 +1,12 @@
 123456789
+
+接口定义（不含base路径）
+    元数据定义了接口的请求方式，传参 （剔除了环境，和环境中的自建应用）
+使用时，通过装饰器或者其他的途径，进行数据的处理
+
+    @GET("hire/v1/agencies/{agency_id}")
+    ResponseResult getAgencies(@Path("agency_id") String agencyId, @HeaderMap Map<String, String> headers);
+
+使用时，直接对某个服务装饰
+    @HttpApi(baseUrl = UrlConstants.ONLINE_BASE_URL)
+    TalentService talentService;

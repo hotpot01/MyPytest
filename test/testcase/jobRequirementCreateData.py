@@ -13,14 +13,21 @@ logging.basicConfig(level=logging.INFO)
 
 #测试数据的获取
 basepath=os.path.dirname(os.path.dirname(__file__))
-datapath=os.path.join(basepath,"testdata/JrCreateData.json")
+datapath=os.path.join(basepath,"testdata/JrCreateDataonline.json")
 with open(datapath,"r") as f:
     reqBody=json.load(f)
 def createJR():
     reqBody.update({"short_code":str(uuid.uuid4())})
-    url=urlCons.boe_base_url
-    token=httpUtils.getBoeToken(appId=appCons.boe_mingri_qa_all_appid,appSecret=appCons.boe_mingri_qa_all_appsecret)
+    url=urlCons.online_base_url
+    token=httpUtils.getOnlineToken(appId=appCons.online_mingri_rd_all_appid,appSecret=appCons.online_mingri_rd_all_appsecret)
     headers={"Authorization":token,"Content-Type":"application/json"}
     r=requests.post(f'{url}hire/v1/job_requirements',headers=headers,json=reqBody,params={"user_id_type":"user_id"})
     logging.info(r.text)
-createJR()
+
+def creatMore():
+    for i in tqdm.trange(2500):
+        createJR()
+
+for i in range(3):
+    t=threading.Thread(target=creatMore)
+    t.start()
