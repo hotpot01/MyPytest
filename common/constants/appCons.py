@@ -3,16 +3,9 @@
 # 获取token
 
 # online的自建应用
-online_mingri_qa_all_appid="cli_a3ee06d2463cd00d"
-online_mingri__qa_all_appsecret="o9HuYTAAT8ugwYLBUZ33cceqWZpfCRHJ"
-online_mingri_rd_all_appid="cli_a09151f62138900e"
-online_mingri_rd_all_appsecret="yWU1huBPNi1cIoxuwIwdch1XBTkCrWjo"
+
 # boe的自建租户的应用
-boe_openapi_qa_all_appid="cli_a3f6156913f8901b"
-boe_openapi_qa_all_appsecret="62ZkhYTnYNdNDrVF8hCXwgT5MC8t7nI6"
+
 # boe公用的自建应用
-boe_mingri_qa_all_appid="cli_a3d5d192aff8d01b"
-boe_mingri_qa_all_appsecret="LexA85Jf2CypkhKWzBEqCcnbGfobjdSk"
+
 # boe公用的自建应用-零权限
-boe_mingri_qa_zero_appid="cli_a3d5d192aff8d01b"
-boe_mingri_qa_zero_appsecret="LexA85Jf2CypkhKWzBEqCcnbGfobjdSk"
