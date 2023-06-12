@@ -1,3 +1,5 @@
+import pytest
+
 from APIs.hireConfigs.jobRequirementService import jobRequirement
 from common.constants import appCons, urlCons
 from common.utils import httpUtils
@@ -16,3 +18,10 @@ if __name__ == '__main__':
                                                     base_url=url)
     r = createJob.post_request()
     print(r.text, "\n", r.headers["X-Tt-Logid"])
+
+def test_create_Z9():
+    pass
+
+@pytest.mark.rpc
+def test_rpc():
+    print("rpc testing")

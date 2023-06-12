@@ -4,6 +4,7 @@ from common.constants import appCons, urlCons
 
 
 # 主要是还有租户的信息
+#环境泳道信息
 
 def getOnlineToken(appId, appSecret):
     url = urlCons.online_base_url
