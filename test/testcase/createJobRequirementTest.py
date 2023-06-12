@@ -8,7 +8,7 @@ import os
 if __name__ == '__main__':
     dir_path=os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
     # print((os.path.dirname(os.path.dirname(__file__))))
-    datapath=dir_path+r"\testdata\JrCreateDataonline.json"
+    datapath=dir_path+r"/testdata/JrCreateDataonline.json"
     with open(datapath,encoding="utf-8") as f:
         dataJson = json.load(f)
     url = urlCons.online_base_url
