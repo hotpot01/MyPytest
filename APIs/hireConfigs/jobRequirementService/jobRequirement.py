@@ -1,14 +1,15 @@
 import requests
 
 class CreateJobRequirement:
-    def __init__(self, param, req_body, headers, url="hire/v1/job_requirements"):
-        self.url = url
+    def __init__(self, param, req_body, headers, base_url,path="hire/v1/job_requirements"):
+        self.url = base_url
         self.params = param
         self.req_body = req_body
         self.headers = headers
+        self.path=path
 
     def post_request(self):
-        response = requests.post(url=self.url, params=self.params, json=self.req_body, headers=self.headers)
+        response = requests.post(url=self.url+self.path, params=self.params, json=self.req_body, headers=self.headers)
         return response
 
 # # 使用类创建一个对象
