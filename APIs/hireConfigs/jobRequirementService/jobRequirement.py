@@ -6,10 +6,9 @@ class CreateJobRequirement:
         self.params = param
         self.req_body = req_body
         self.headers = headers
-        self.path=path
 
     def post_request(self):
-        response = requests.post(url=self.url+self.path, params=self.params, json=self.req_body, headers=self.headers)
+        response = requests.post(url=self.url, params=self.params, json=self.req_body, headers=self.headers)
         return response
 class getJobRequirement:
     def __init__(self, param,headers,base_url,path="hire/job_requirements/search"):
