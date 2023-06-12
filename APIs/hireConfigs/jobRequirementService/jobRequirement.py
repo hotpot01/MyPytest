@@ -30,3 +30,5 @@ class getJobRequirementList:
     def post_request(self):
         response = requests.get(url=self.url, params=self.params, headers=self.headers)
         return response
+def deletJobRequirement():
+    pass
