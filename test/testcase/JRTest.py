@@ -3,7 +3,9 @@ from common.constants import appCons, urlCons
 from common.utils import httpUtils
 import json
 import os
-if __name__ == '__main__':
+
+go  
+def test_creat_jr():
     dir_path=os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
     # print((os.path.dirname(os.path.dirname(__file__))))
     datapath=dir_path+r"\testdata\JrCreateDataonline.json"
@@ -16,3 +18,25 @@ if __name__ == '__main__':
                                                     base_url=url)
     r = createJob.post_request()
     print(r.text, "\n", r.headers["X-Tt-Logid"])
+def test_get_jr():
+    url = urlCons.online_base_url
+    getJob = jobRequirement.getJobRequirement(param={"user_id_type":"user_id"},
+                                                    headers=httpUtils.getOnlineHeader(),
+                                                    base_url=url)
+    r = getJob.post_request()
+    print(r.text, "\n", r.headers["X-Tt-Logid"])
+
+def test_get_jrList():
+    url = urlCons.online_base_url
+    getJob = jobRequirement.getJobRequirementList(param={"user_id_type":"user_id"},
+                                                    headers=httpUtils.getOnlineHeader(),
+                                                    base_url=url)
+    r = getJob.post_request()
+    print(r.text, "\n", r.headers["X-Tt-Logid"])
+
+
+class JRtest():
+    base_url=""
+
+    def test_new(self):
+        pass
