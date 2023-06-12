@@ -4,7 +4,7 @@ from common.utils import httpUtils
 import json
 import os
 
-go  
+
 def test_creat_jr():
     dir_path=os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
     # print((os.path.dirname(os.path.dirname(__file__))))
