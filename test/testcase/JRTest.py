@@ -60,13 +60,29 @@ def test_passwd_md5(user, passwd):
     }
     assert hashlib.md5(passwd.encode()).hexdigest() == db[user]
 #实现参数组合，笛卡尔积
-@pytest.mark.parametrize("a",[1,2],id="a")
-@pytest.mark.parametrize("b",[3,4],id="b")
-@pytest.mark.parametrize("c",[1,2,3,4],id="c")
+@pytest.mark.parametrize("a",[1,2])
+@pytest.mark.parametrize("b",[3,4])
+@pytest.mark.parametrize("c",[1,2,3,4])
 def test_ab(a,b,c):
     print(a,b,c)
 
 #可以传个fixture，读fixture中的数据，fixture可以时读文件的入口
+#1.这里request的写法就是这样的，request是pytest里面特别有用的固件：https://docs.pytest.org/en/stable/reference/reference.html#request
+#2.indirect为True的时候，会把argsname解释为函数，把argsvalue解释为函数的执行参数
+@pytest.fixture(scope="function")
+def x(request):
+    print("调用的函数名:",request.function)
+    return request.param*3
+
+@pytest.fixture(scope="function")
+def y(request):
+    return request.param*2
+
+@pytest.mark.parametrize("x,y",[("a","b")],indirect=True)
+def test_xy(x,y):
+    print(x,y)
+# Todo  1.不可能同一个接口，因为测试数据不同，而写多条用例 2. 断言的时候怎么处理，不同的数据会有不同的断言 3.需要做到什么粒度
+
 class TestFR():
     base_url=""
 
