@@ -13,7 +13,7 @@ def test_compute(param):
 
 #配置固件的测试
 
-
+@pytest.mark.env
 @pytest.mark.option
 def test_option1(pytestconfig):
     print("打印环境参数信息")
@@ -21,7 +21,7 @@ def test_option1(pytestconfig):
     print('host: %s' % pytestconfig.getoption('host'))
     print('port: %s' % pytestconfig.getoption('port'))
 
-
+@pytest.mark.env
 @pytest.mark.all
 def test_all(allUse):
     print("测试意向")
