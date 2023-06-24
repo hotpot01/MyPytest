@@ -12,6 +12,8 @@ def test_compute(param):
 
 
 #配置固件的测试
+
+
 @pytest.mark.option
 def test_option1(pytestconfig):
     print("打印环境参数信息")
@@ -25,7 +27,7 @@ def test_all(allUse):
     print("测试意向")
     assert allUse==56
 
-
+#只会打印错误的信息
 def test_use_pytest_check():
-    for i in range(3):
+    for i in range(5):
         check.equal(i,3)

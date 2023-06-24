@@ -93,8 +93,8 @@ def test_xy(x,y):
     print(x,y)
 
 #内置固件
-
-@pytest.fixture(scope="fucntion")
+#这里重写了tmpdir
+@pytest.fixture()
 def tmpdir():
     return "hello"
 def test_dir(tmpdir):
