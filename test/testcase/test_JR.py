@@ -7,13 +7,13 @@ import json
 import hashlib
 import os
 
-
+url=urlCons.online_base_url
 def test_creat_jr():
     file=pathlib.Path(__file__)
     datapath=file.resolve().parents[1].joinpath("testdata/JrCreateDataonline.json")
     with open(datapath,encoding="utf-8") as f:
         dataJson = json.load(f)
-    url = urlCons.online_base_url
+    # url = urlCons.online_base_url
     createJob = jobRequirement.CreateJobRequirement(param={"user_id_type":"user_id"},
                                                     req_body=dataJson["createJobRequirement"]["in"]["reqBody"],
                                                     headers=httpUtils.getOnlineHeader(),
@@ -66,22 +66,24 @@ def test_passwd_md5(user, passwd):
 def test_ab(a,b,c):
     print(a,b,c)
 
-#可以传个fixture，读fixture中的数据，fixture可以时读文件的入口
-#1.这里request的写法就是这样的，request是pytest里面特别有用的固件：https://docs.pytest.org/en/stable/reference/reference.html#request
-#2.indirect为True的时候，会把argsname解释为函数，把argsvalue解释为函数的执行参数
-@pytest.fixture(scope="function")
-def x(request):
-    print("调用的函数名:",request.function)
-    return request.param*3
 
-@pytest.fixture(scope="function")
-def y(request):
-    return request.param*2
 
-@pytest.mark.parametrize("x,y",[("a","b")],indirect=True)
-def test_xy(x,y):
-    print(x,y)
 # Todo  1.不可能同一个接口，因为测试数据不同，而写多条用例 2. 断言的时候怎么处理，不同的数据会有不同的断言 3.需要做到什么粒度
+# 分两大类逻辑测试（正向，方向，边界）和结构测试（返回结构体），后面的性能(qps)和安全测试，放在一边另说
+
+#用例的分组执行
+#content of test_param.py
+# coding=utf-8
+import pytest
+
+#利用pytest.param添加,粒度更细，可以针对单条用例进行定制
+@pytest.mark.parametrize("a,b,expected",
+    [(4,2,1), pytest.param(9,3,6, marks=pytest.mark.xfail,id="expect fail")
+     ,pytest.param(5,3,1,marks=[pytest.mark.first,pytest.mark.xfail],id="test3")],
+)
+def test_diff_v3(a, b, expected):
+    diff = a - b
+    assert diff == expected
 
 class TestFR():
     base_url=""
